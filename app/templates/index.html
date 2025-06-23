@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>All Polls</h2>
+<a href="{{ url_for('main.create') }}">Create New Poll</a>
+<ul>
+    {% for poll in polls %}
+    <li>
+        {{ poll.question }}
+        <a href="{{ url_for('main.vote', poll_id=poll.id) }}">Vote</a>
+        <a href="{{ url_for('main.results', poll_id=poll.id) }}">Results</a>
+        <form action="{{ url_for('main.delete', poll_id=poll.id) }}" method="post" style="display:inline;">
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

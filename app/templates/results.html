@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Results for: {{ poll.question }}</h2>
+<ul>
+    <li>{{ poll.option1 }} - {{ poll.votes1 }} votes</li>
+    <li>{{ poll.option2 }} - {{ poll.votes2 }} votes</li>
+    {% if poll.option3 %}<li>{{ poll.option3 }} - {{ poll.votes3 }} votes</li>{% endif %}
+    {% if poll.option4 %}<li>{{ poll.option4 }} - {{ poll.votes4 }} votes</li>{% endif %}
+</ul>
+<a href="{{ url_for('main.index') }}">Back to Polls</a>
+{% endblock %}

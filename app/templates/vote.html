@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ poll.question }}</h2>
+<form method="post">
+    <input type="radio" name="choice" value="1" required> {{ poll.option1 }}<br>
+    <input type="radio" name="choice" value="2"> {{ poll.option2 }}<br>
+    {% if poll.option3 %}<input type="radio" name="choice" value="3"> {{ poll.option3 }}<br>{% endif %}
+    {% if poll.option4 %}<input type="radio" name="choice" value="4"> {{ poll.option4 }}<br>{% endif %}
+    <button type="submit">Vote</button>
+</form>
+{% endblock %}
